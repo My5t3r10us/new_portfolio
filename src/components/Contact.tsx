@@ -1,48 +1,36 @@
 import { motion } from 'framer-motion';
-import { useState } from 'react';
-import { Mail, MapPin, Phone, Send } from 'lucide-react';
-import { type ContactSubmission } from '../lib/types';
+import { Mail, Phone, Github, Linkedin } from 'lucide-react';
 import { useInView } from '../hooks/useInView';
 
 export const Contact = () => {
-  const [formData, setFormData] = useState<ContactSubmission>({
-    name: '',
-    email: '',
-    subject: '',
-    message: '',
-  });
-  const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
-  const [focusedField, setFocusedField] = useState<string | null>(null);
   const { ref, isInView } = useInView();
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setStatus('loading');
-
-    const { error } = await supabase
-      .from('contact_submissions')
-      .insert([formData]);
-
-    if (error) {
-      setStatus('error');
-      setTimeout(() => setStatus('idle'), 3000);
-    } else {
-      setStatus('success');
-      setFormData({ name: '', email: '', subject: '', message: '' });
-      setTimeout(() => setStatus('idle'), 3000);
-    }
-  };
-
-  const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-  ) => {
-    setFormData((prev) => ({
-      ...prev,
-      [e.target.name]: e.target.value,
-    }));
-  };
-
-  console.log('isInView contact:', isInView);
+  const contactInfo = [
+    {
+      icon: Mail,
+      title: 'Email',
+      value: 'votre.email@example.com',
+      link: 'mailto:votre.email@example.com',
+    },
+    {
+      icon: Github,
+      title: 'GitHub',
+      value: 'github.com/votre-username',
+      link: 'https://github.com/votre-username',
+    },
+    {
+      icon: Linkedin,
+      title: 'LinkedIn',
+      value: 'linkedin.com/in/votre-profil',
+      link: 'https://linkedin.com/in/votre-profil',
+    },
+    {
+      icon: Phone,
+      title: 'Téléphone',
+      value: '+33 X XX XX XX XX',
+      link: 'tel:+33XXXXXXXXX',
+    },
+  ];
 
   return (
     <section id="contact" className="relative py-32 overflow-hidden">
@@ -82,175 +70,31 @@ export const Contact = () => {
           </motion.p>
         </motion.div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 max-w-6xl mx-auto">
-          <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            animate={isInView ? { opacity: 1, x: 0 } : {}}
-            transition={{ delay: 0.5 }}
-            className="space-y-6"
-          >
-            <motion.div
-              className="glass glass-hover rounded-2xl p-6"
-              whileHover={{ scale: 1.05, y: -5 }}
-            >
-              <div className="w-12 h-12 glass rounded-lg flex items-center justify-center mb-4">
-                <Mail size={24} className="text-dark-300" />
-              </div>
-              <h3 className="text-xl font-bold text-white mb-2">Email</h3>
-              <p className="text-dark-400">contact@example.com</p>
-            </motion.div>
-
-            <motion.div
-              className="glass glass-hover rounded-2xl p-6"
-              whileHover={{ scale: 1.05, y: -5 }}
-            >
-              <div className="w-12 h-12 glass rounded-lg flex items-center justify-center mb-4">
-                <Phone size={24} className="text-dark-300" />
-              </div>
-              <h3 className="text-xl font-bold text-white mb-2">Téléphone</h3>
-              <p className="text-dark-400">+1 (555) 123-4567</p>
-            </motion.div>
-
-            <motion.div
-              className="glass glass-hover rounded-2xl p-6"
-              whileHover={{ scale: 1.05, y: -5 }}
-            >
-              <div className="w-12 h-12 glass rounded-lg flex items-center justify-center mb-4">
-                <MapPin size={24} className="text-dark-300" />
-              </div>
-              <h3 className="text-xl font-bold text-white mb-2">Localisation</h3>
-              <p className="text-dark-400">San Francisco, CA</p>
-            </motion.div>
-          </motion.div>
-
-          <motion.form
-            initial={{ opacity: 0, x: 50 }}
-            animate={isInView ? { opacity: 1, x: 0 } : {}}
-            transition={{ delay: 0.6 }}
-            onSubmit={handleSubmit}
-            className="lg:col-span-2 glass rounded-2xl p-8"
-          >
-            <div className="space-y-6">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div className="relative">
-                  <motion.label
-                    htmlFor="name"
-                    className={`absolute left-4 transition-all duration-200 pointer-events-none ${
-                      focusedField === 'name' || formData.name
-                        ? 'top-2 text-xs text-dark-400'
-                        : 'top-4 text-base text-dark-500'
-                    }`}
-                  >
-                    Votre nom
-                  </motion.label>
-                  <input
-                    type="text"
-                    id="name"
-                    name="name"
-                    value={formData.name}
-                    onChange={handleChange}
-                    onFocus={() => setFocusedField('name')}
-                    onBlur={() => setFocusedField(null)}
-                    required
-                    className="w-full px-4 pt-6 pb-2 bg-dark-800 border border-dark-700 rounded-lg text-white focus:border-dark-500 focus:outline-none transition-colors"
-                  />
-                </div>
-
-                <div className="relative">
-                  <motion.label
-                    htmlFor="email"
-                    className={`absolute left-4 transition-all duration-200 pointer-events-none ${
-                      focusedField === 'email' || formData.email
-                        ? 'top-2 text-xs text-dark-400'
-                        : 'top-4 text-base text-dark-500'
-                    }`}
-                  >
-                    Votre email
-                  </motion.label>
-                  <input
-                    type="email"
-                    id="email"
-                    name="email"
-                    value={formData.email}
-                    onChange={handleChange}
-                    onFocus={() => setFocusedField('email')}
-                    onBlur={() => setFocusedField(null)}
-                    required
-                    className="w-full px-4 pt-6 pb-2 bg-dark-800 border border-dark-700 rounded-lg text-white focus:border-dark-500 focus:outline-none transition-colors"
-                  />
-                </div>
-              </div>
-
-              <div className="relative">
-                <motion.label
-                  htmlFor="subject"
-                  className={`absolute left-4 transition-all duration-200 pointer-events-none ${
-                    focusedField === 'subject' || formData.subject
-                      ? 'top-2 text-xs text-dark-400'
-                      : 'top-4 text-base text-dark-500'
-                  }`}
-                >
-                  Sujet
-                </motion.label>
-                <input
-                  type="text"
-                  id="subject"
-                  name="subject"
-                  value={formData.subject}
-                  onChange={handleChange}
-                  onFocus={() => setFocusedField('subject')}
-                  onBlur={() => setFocusedField(null)}
-                  required
-                  className="w-full px-4 pt-6 pb-2 bg-dark-800 border border-dark-700 rounded-lg text-white focus:border-dark-500 focus:outline-none transition-colors"
-                />
-              </div>
-
-              <div className="relative">
-                <motion.label
-                  htmlFor="message"
-                  className={`absolute left-4 transition-all duration-200 pointer-events-none ${
-                    focusedField === 'message' || formData.message
-                      ? 'top-2 text-xs text-dark-400'
-                      : 'top-4 text-base text-dark-500'
-                  }`}
-                >
-                  Message
-                </motion.label>
-                <textarea
-                  id="message"
-                  name="message"
-                  value={formData.message}
-                  onChange={handleChange}
-                  onFocus={() => setFocusedField('message')}
-                  onBlur={() => setFocusedField(null)}
-                  required
-                  rows={6}
-                  className="w-full px-4 pt-6 pb-2 bg-dark-800 border border-dark-700 rounded-lg text-white focus:border-dark-500 focus:outline-none transition-colors resize-none"
-                />
-              </div>
-
-              <motion.button
-                type="submit"
-                disabled={status === 'loading'}
-                className="w-full flex items-center justify-center gap-2 px-8 py-4 bg-white text-dark-950 rounded-lg font-semibold hover:shadow-glow-lg transition-all disabled:opacity-50 disabled:cursor-not-allowed"
-                whileHover={status === 'idle' ? { scale: 1.02, y: -2 } : {}}
-                whileTap={status === 'idle' ? { scale: 0.98 } : {}}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+          {contactInfo.map((contact, index) => {
+            const Icon = contact.icon;
+            return (
+              <motion.a
+                key={contact.title}
+                href={contact.link}
+                target={contact.title !== 'Email' && contact.title !== 'Téléphone' ? '_blank' : undefined}
+                rel={contact.title !== 'Email' && contact.title !== 'Téléphone' ? 'noopener noreferrer' : undefined}
+                initial={{ opacity: 0, y: 30 }}
+                animate={isInView ? { opacity: 1, y: 0 } : {}}
+                transition={{ delay: 0.5 + index * 0.1 }}
+                className="glass glass-hover rounded-2xl p-8 group cursor-pointer"
+                whileHover={{ scale: 1.05, y: -5 }}
               >
-                {status === 'loading' ? (
-                  <span>Envoi...</span>
-                ) : status === 'success' ? (
-                  <span>Message envoyé !</span>
-                ) : status === 'error' ? (
-                  <span>Erreur. Réessayez.</span>
-                ) : (
-                  <>
-                    <Send size={20} />
-                    <span>Envoyer le message</span>
-                  </>
-                )}
-              </motion.button>
-            </div>
-          </motion.form>
+                <div className="w-14 h-14 glass rounded-xl flex items-center justify-center mb-6 group-hover:shadow-glow transition-all">
+                  <Icon size={28} className="text-dark-300 group-hover:text-white transition-colors" />
+                </div>
+                <h3 className="text-2xl font-bold text-white mb-3">{contact.title}</h3>
+                <p className="text-dark-400 group-hover:text-dark-300 transition-colors break-all">
+                  {contact.value}
+                </p>
+              </motion.a>
+            );
+          })}
         </div>
       </div>
     </section>

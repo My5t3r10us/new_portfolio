@@ -53,7 +53,7 @@ export const Projects = () => {
             "tech_stack": [
                "Next.js",
                "TypeScript",
-               "Supabase",
+               "PostgreSQL",
                "Tailwind CSS",
                "Chart.js"
             ],
