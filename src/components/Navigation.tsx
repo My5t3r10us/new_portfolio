@@ -4,11 +4,11 @@ import { useState, useEffect } from 'react';
 import { useScrollSpy } from '../hooks/useScrollSpy';
 
 const navItems = [
-  { id: 'home', label: 'Home' },
-  { id: 'stack', label: 'Tech Stack' },
+  { id: 'home', label: 'Accueil' },
+  { id: 'stack', label: 'Technologies' },
   { id: 'services', label: 'Services' },
-  { id: 'projects', label: 'Projects' },
-  { id: 'experience', label: 'Experience' },
+  { id: 'projects', label: 'Projets' },
+  { id: 'experience', label: 'Expérience' },
   { id: 'contact', label: 'Contact' },
 ];
 

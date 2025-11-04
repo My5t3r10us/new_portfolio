@@ -1,48 +1,82 @@
 import { motion } from 'framer-motion';
 import { useEffect, useState } from 'react';
 import { Calendar, MapPin } from 'lucide-react';
-import { supabase, type Experience as ExperienceType } from '../lib/supabase';
+import { type Experience as ExperienceType } from '../lib/types';
 import { useInView } from '../hooks/useInView';
 
 export const Experience = () => {
   const [experiences, setExperiences] = useState<ExperienceType[]>([]);
-  // const [loading, setLoading] = useState(true);
   const { ref, isInView } = useInView();
-
-  useEffect(() => {
-    const fetchExperience = async () => {
-      const { data, error } = await supabase
-        .from('experience')
-        .select('*')
-        .order('order_index', { ascending: true });
-
-      if (!error && data) {
-        setExperiences(data);
-      }
-      // setLoading(false);
-    };
-
-    fetchExperience();
-  }, []);
 
   const formatDate = (dateString: string) => {
     const date = new Date(dateString);
     return date.toLocaleDateString('fr-FR', { month: 'short', year: 'numeric' });
   };
 
-  // if (loading) {
-  //   return (
-  //     <section id="experience" className="relative py-32">
-  //       <div className="container mx-auto px-6">
-  //         <div className="text-center text-dark-400">Loading experience...</div>
-  //       </div>
-  //     </section>
-  //   );
-  // }
+  useEffect(() => {
+    setExperiences([
+      {
+        "id": "51071866-7b0f-4b84-a3a6-6fd6b17aa4a5",
+        "company": "Tech Innovators",
+        "role": "Senior Full-Stack Developer",
+        "description": "Led development of multiple client projects using React, Node.js, and PostgreSQL. Architected scalable microservices, mentored junior developers, and established best practices for code quality and testing. Delivered projects consistently on time with 99.9% uptime.",
+        "location": "San Francisco, CA",
+        "start_date": "2021-06-01",
+        "end_date": "",
+        "technologies": [
+          "React",
+          "Next.js",
+          "Node.js",
+          "PostgreSQL",
+          "AWS",
+          "Docker"
+        ],
+        "order_index": 1,
+        "created_at": "2025-10-30T13:05:52.968357+00:00"
+      },
+      {
+        "id": "c58ee89f-8968-4f93-9ebd-62628cfa7fda",
+        "company": "Digital Solutions Co",
+        "role": "Full-Stack Developer",
+        "description": "Built and maintained web applications for enterprise clients. Implemented responsive designs, optimized database queries reducing load times by 60%, and integrated third-party APIs. Collaborated with cross-functional teams in an Agile environment.",
+        "location": "Remote",
+        "start_date": "2019-03-01",
+        "end_date": "2021-05-31",
+        "technologies": [
+          "Vue.js",
+          "Nuxt",
+          "Express",
+          "MongoDB",
+          "Redis",
+          "Git"
+        ],
+        "order_index": 2,
+        "created_at": "2025-10-30T13:05:52.968357+00:00"
+      },
+      {
+        "id": "8db802a4-eb1e-4554-9a5d-8e567cc9ca5f",
+        "company": "StartUp Labs",
+        "role": "Frontend Developer",
+        "description": "Developed user interfaces for SaaS products using React and modern CSS frameworks. Focused on creating intuitive, accessible designs while ensuring cross-browser compatibility. Participated in design reviews and user testing sessions.",
+        "location": "Austin, TX",
+        "start_date": "2017-08-01",
+        "end_date": "2019-02-28",
+        "technologies": [
+          "React",
+          "JavaScript",
+          "SASS",
+          "Webpack",
+          "Jest"
+        ],
+        "order_index": 3,
+        "created_at": "2025-10-30T13:05:52.968357+00:00"
+      }
+    ]);
+  }, []);
 
   return (
     <section id="experience" className="relative py-32 overflow-hidden">
-      <div className="absolute inset-0 grid-background opacity-30" />
+      <div className="absolute inset-0 grid-background" />
 
       <div className="container mx-auto px-6 relative z-10">
         <motion.div
@@ -58,7 +92,7 @@ export const Experience = () => {
             transition={{ delay: 0.2 }}
             className="text-dark-400 text-sm uppercase tracking-wider font-medium"
           >
-            Career Journey
+            Parcours professionnel
           </motion.span>
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
@@ -66,7 +100,7 @@ export const Experience = () => {
             transition={{ delay: 0.3 }}
             className="text-4xl md:text-5xl font-bold mt-4 text-gradient"
           >
-            Experience
+            Expérience
           </motion.h2>
           <motion.p
             initial={{ opacity: 0 }}
@@ -74,7 +108,7 @@ export const Experience = () => {
             transition={{ delay: 0.4 }}
             className="text-dark-400 mt-4 max-w-2xl mx-auto"
           >
-            My professional journey building innovative solutions
+            Mon parcours professionnel dédié à la création de solutions innovantes
           </motion.p>
         </motion.div>
 
@@ -88,9 +122,8 @@ export const Experience = () => {
                 initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
                 animate={isInView ? { opacity: 1, x: 0 } : {}}
                 transition={{ delay: index * 0.2 }}
-                className={`relative mb-12 ${
-                  index % 2 === 0 ? 'md:pr-1/2' : 'md:pl-1/2 md:text-right'
-                }`}
+                className={`relative mb-12 ${index % 2 === 0 ? 'md:pr-1/2' : 'md:pl-1/2 md:text-right'
+                  }`}
               >
                 <div className={`flex items-center gap-4 ${index % 2 === 0 ? '' : 'md:flex-row-reverse'}`}>
                   {/* <motion.div
@@ -119,7 +152,7 @@ export const Experience = () => {
                             <Calendar size={16} />
                             <span>
                               {formatDate(exp.start_date)} -{' '}
-                              {exp.end_date ? formatDate(exp.end_date) : 'Present'}
+                              {exp.end_date ? formatDate(exp.end_date) : 'Présent'}
                             </span>
                           </div>
                           <div className="flex items-center gap-2 text-dark-400 text-sm">

@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import { useState } from 'react';
 import { Mail, MapPin, Phone, Send } from 'lucide-react';
-import { supabase, type ContactSubmission } from '../lib/supabase';
+import { type ContactSubmission } from '../lib/types';
 import { useInView } from '../hooks/useInView';
 
 export const Contact = () => {
@@ -45,8 +45,8 @@ export const Contact = () => {
   console.log('isInView contact:', isInView);
 
   return (
-    <section id="contact" className="relative py-32 overflow-hidden bg-dark-900/30">
-      <div className="absolute inset-0 grid-background opacity-30" />
+    <section id="contact" className="relative py-32 overflow-hidden">
+      <div className="absolute inset-0 grid-background" />
 
       <div className="container mx-auto px-6 relative z-10">
         <motion.div
@@ -62,7 +62,7 @@ export const Contact = () => {
             transition={{ delay: 0.2 }}
             className="text-dark-400 text-sm uppercase tracking-wider font-medium"
           >
-            Get In Touch
+            Prendre contact
           </motion.span>
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
@@ -70,7 +70,7 @@ export const Contact = () => {
             transition={{ delay: 0.3 }}
             className="text-4xl md:text-5xl font-bold mt-4 text-gradient"
           >
-            Contact Me
+            Me contacter
           </motion.h2>
           <motion.p
             initial={{ opacity: 0 }}
@@ -78,7 +78,7 @@ export const Contact = () => {
             transition={{ delay: 0.4 }}
             className="text-dark-400 mt-4 max-w-2xl mx-auto"
           >
-            Have a project in mind? Let's discuss how we can work together
+            Vous avez un projet en tête ? Discutons de la façon dont nous pouvons travailler ensemble
           </motion.p>
         </motion.div>
 
@@ -107,7 +107,7 @@ export const Contact = () => {
               <div className="w-12 h-12 glass rounded-lg flex items-center justify-center mb-4">
                 <Phone size={24} className="text-dark-300" />
               </div>
-              <h3 className="text-xl font-bold text-white mb-2">Phone</h3>
+              <h3 className="text-xl font-bold text-white mb-2">Téléphone</h3>
               <p className="text-dark-400">+1 (555) 123-4567</p>
             </motion.div>
 
@@ -118,7 +118,7 @@ export const Contact = () => {
               <div className="w-12 h-12 glass rounded-lg flex items-center justify-center mb-4">
                 <MapPin size={24} className="text-dark-300" />
               </div>
-              <h3 className="text-xl font-bold text-white mb-2">Location</h3>
+              <h3 className="text-xl font-bold text-white mb-2">Localisation</h3>
               <p className="text-dark-400">San Francisco, CA</p>
             </motion.div>
           </motion.div>
@@ -141,7 +141,7 @@ export const Contact = () => {
                         : 'top-4 text-base text-dark-500'
                     }`}
                   >
-                    Your Name
+                    Votre nom
                   </motion.label>
                   <input
                     type="text"
@@ -165,7 +165,7 @@ export const Contact = () => {
                         : 'top-4 text-base text-dark-500'
                     }`}
                   >
-                    Your Email
+                    Votre email
                   </motion.label>
                   <input
                     type="email"
@@ -190,7 +190,7 @@ export const Contact = () => {
                       : 'top-4 text-base text-dark-500'
                   }`}
                 >
-                  Subject
+                  Sujet
                 </motion.label>
                 <input
                   type="text"
@@ -237,15 +237,15 @@ export const Contact = () => {
                 whileTap={status === 'idle' ? { scale: 0.98 } : {}}
               >
                 {status === 'loading' ? (
-                  <span>Sending...</span>
+                  <span>Envoi...</span>
                 ) : status === 'success' ? (
-                  <span>Message Sent!</span>
+                  <span>Message envoyé !</span>
                 ) : status === 'error' ? (
-                  <span>Error. Try Again.</span>
+                  <span>Erreur. Réessayez.</span>
                 ) : (
                   <>
                     <Send size={20} />
-                    <span>Send Message</span>
+                    <span>Envoyer le message</span>
                   </>
                 )}
               </motion.button>

@@ -46,10 +46,10 @@ export const Footer = () => {
             className="text-center"
           >
             <p className="text-dark-400 text-sm">
-              Designed & Built with passion
+              Conçu et développé avec passion
             </p>
             <p className="text-dark-500 text-xs mt-2">
-              © {new Date().getFullYear()} All rights reserved
+              © {new Date().getFullYear()} Tous droits réservés
             </p>
           </motion.div>
         </div>
@@ -57,3 +57,4 @@ export const Footer = () => {
     </footer>
   );
 };
+

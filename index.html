@@ -2,12 +2,31 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Baptiste MOINE - WebDev</title>
+    <title>Baptiste Moine - Web Développeur</title>
   </head>
   <body>
     <div id="root"></div>
+
+    <script>
+      const texte = "Baptiste Moine - Web Developper | ";
+      let position = 0;
+
+      function animerTitle() {
+          const longueurVisible = 30;
+          const texteRepete = texte.repeat(3);
+          
+          document.title = texteRepete.substring(position, position + longueurVisible);
+          
+          position++;
+          if (position >= texte.length) {
+              position = 0;
+          }
+      }
+
+      setInterval(animerTitle, 180);
+    </script>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>
