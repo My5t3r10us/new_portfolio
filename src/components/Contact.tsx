@@ -1,36 +1,10 @@
 import { motion } from 'framer-motion';
-import { Mail, Phone, Github, Linkedin } from 'lucide-react';
 import { useInView } from '../hooks/useInView';
+
+import config from '../../portfolio.config';
 
 export const Contact = () => {
   const { ref, isInView } = useInView();
-
-  const contactInfo = [
-    {
-      icon: Mail,
-      title: 'Email',
-      value: 'votre.email@example.com',
-      link: 'mailto:votre.email@example.com',
-    },
-    {
-      icon: Github,
-      title: 'GitHub',
-      value: 'github.com/votre-username',
-      link: 'https://github.com/votre-username',
-    },
-    {
-      icon: Linkedin,
-      title: 'LinkedIn',
-      value: 'linkedin.com/in/votre-profil',
-      link: 'https://linkedin.com/in/votre-profil',
-    },
-    {
-      icon: Phone,
-      title: 'Téléphone',
-      value: '+33 X XX XX XX XX',
-      link: 'tel:+33XXXXXXXXX',
-    },
-  ];
 
   return (
     <section id="contact" className="relative py-32 overflow-hidden">
@@ -50,7 +24,7 @@ export const Contact = () => {
             transition={{ delay: 0.2 }}
             className="text-dark-400 text-sm uppercase tracking-wider font-medium"
           >
-            Prendre contact
+            {config.contact.label}
           </motion.span>
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
@@ -58,7 +32,7 @@ export const Contact = () => {
             transition={{ delay: 0.3 }}
             className="text-4xl md:text-5xl font-bold mt-4 text-gradient"
           >
-            Me contacter
+            {config.contact.titre}
           </motion.h2>
           <motion.p
             initial={{ opacity: 0 }}
@@ -66,12 +40,12 @@ export const Contact = () => {
             transition={{ delay: 0.4 }}
             className="text-dark-400 mt-4 max-w-2xl mx-auto"
           >
-            Vous avez un projet en tête ? Discutons de la façon dont nous pouvons travailler ensemble
+            {config.contact.description}
           </motion.p>
         </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
-          {contactInfo.map((contact, index) => {
+          {config.contact.data.map((contact, index) => {
             const Icon = contact.icon;
             return (
               <motion.a
@@ -81,7 +55,7 @@ export const Contact = () => {
                 rel={contact.title !== 'Email' && contact.title !== 'Téléphone' ? 'noopener noreferrer' : undefined}
                 initial={{ opacity: 0, y: 30 }}
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
-                transition={{ delay: 0.5 + index * 0.1 }}
+                transition={{ delay: 0.2 + index * 0.1 }}
                 className="glass glass-hover rounded-2xl p-8 group cursor-pointer"
                 whileHover={{ scale: 1.05, y: -5 }}
               >

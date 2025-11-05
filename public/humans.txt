@@ -1,0 +1,18 @@
+/* TEAM */
+Developer: Baptiste Moine
+Contact: v.baptiste.moine@gmail.com
+GitHub: https://github.com/My5t3r10us
+LinkedIn: https://linkedin.com/in/baptiste-moine
+Location: France
+
+/* SITE */
+Last update: 2025/11/05
+Language: Français / French
+Doctype: HTML5
+IDE: Visual Studio Code
+Technologies: React, TypeScript, Vite, Tailwind CSS
+
+/* THANKS */
+Fonts: Google Fonts
+Icons: Lucide Icons
+Hosting: Infomaniak

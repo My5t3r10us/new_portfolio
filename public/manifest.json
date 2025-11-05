@@ -1,0 +1,39 @@
+{
+  "name": "Baptiste Moine - Portfolio Développeur Web Full-Stack",
+  "short_name": "Baptiste Moine",
+  "description": "Portfolio professionnel de Baptiste Moine, développeur web fullstack spécialisé en React, Node.js et TypeScript",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#000000",
+  "theme_color": "#000000",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/favicon.ico",
+      "sizes": "64x64 32x32 24x24 16x16",
+      "type": "image/x-icon"
+    },
+    {
+      "src": "/icon-192.png",
+      "type": "image/png",
+      "sizes": "192x192",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/icon-512.png",
+      "type": "image/png",
+      "sizes": "512x512",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": [
+    "portfolio",
+    "developer",
+    "web development",
+    "fullstack"
+  ],
+  "lang": "fr-FR",
+  "dir": "ltr",
+  "scope": "/",
+  "prefer_related_applications": false
+}

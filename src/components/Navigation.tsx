@@ -3,19 +3,12 @@ import { Menu, X } from 'lucide-react';
 import { useState, useEffect } from 'react';
 import { useScrollSpy } from '../hooks/useScrollSpy';
 
-const navItems = [
-  { id: 'home', label: 'Accueil' },
-  { id: 'stack', label: 'Technologies' },
-  { id: 'services', label: 'Services' },
-  { id: 'projects', label: 'Projets' },
-  { id: 'experience', label: 'Expérience' },
-  { id: 'contact', label: 'Contact' },
-];
+import config from '../../portfolio.config';
 
 export const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const activeSection = useScrollSpy(navItems.map(item => item.id));
+  const activeSection = useScrollSpy(config.navigation.navItems.map(item => item.id));
 
   useEffect(() => {
     const handleScroll = () => {
@@ -50,11 +43,11 @@ export const Navigation = () => {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
-              Portfolio
+              {config.site.name}
             </motion.button>
 
             <div className="hidden md:flex items-center gap-8">
-              {navItems.map((item) => (
+              {config.navigation.navItems.map((item) => (
                 <motion.button
                   key={item.id}
                   onClick={() => scrollToSection(item.id)}
@@ -96,7 +89,7 @@ export const Navigation = () => {
           className="fixed inset-y-0 right-0 z-40 w-64 glass md:hidden"
         >
           <div className="flex flex-col gap-4 p-8 pt-20">
-            {navItems.map((item) => (
+            {config.navigation.navItems.map((item) => (
               <motion.button
                 key={item.id}
                 onClick={() => scrollToSection(item.id)}

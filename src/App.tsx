@@ -8,10 +8,12 @@ import { Contact } from './components/Contact';
 import { Footer } from './components/Footer';
 import { CustomCursor } from './components/CustomCursor';
 import { ScrollProgress } from './components/ScrollProgress';
+import { SEO } from './components/SEO';
 
 function App() {
   return (
     <div className="min-h-screen cursor-none">
+      <SEO />
       <CustomCursor />
       <ScrollProgress />
       <Navigation />

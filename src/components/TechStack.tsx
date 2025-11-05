@@ -1,47 +1,8 @@
 import { motion } from 'framer-motion';
 import { useInView } from '../hooks/useInView';
 
-const techCategories = [
-    {
-        title: 'Front-end',
-        techs: [
-            { name: 'React' },
-            { name: 'Vue.js' },
-            { name: 'Next.js' },
-            { name: 'TypeScript' },
-            { name: 'Tailwind CSS' },
-        ],
-    },
-    {
-        title: 'Back-end',
-        techs: [
-            { name: 'Node.js' },
-            { name: 'Express' },
-            { name: 'Nuxt' },
-            { name: 'RESTful APIs' },
-            { name: 'PHP' },
-        ],
-    },
-    {
-        title: 'Base de données',
-        techs: [
-            { name: 'MariaDB' },
-            { name: 'MongoDB' },
-            { name: 'Redis' },
-            { name: 'Supabase' },
-        ],
-    },
-    {
-        title: 'Autres',
-        techs: [
-            { name: 'Git' },
-            { name: 'Vercel' },
-            { name: 'Python' },
-            { name: 'Supabase' },
-            { name: 'UI/UX' },
-        ],
-    },
-];
+import config from '../../portfolio.config';
+
 
 export const TechStack = () => {
     const { ref, isInView } = useInView();
@@ -64,7 +25,7 @@ export const TechStack = () => {
                         transition={{ delay: 0.2 }}
                         className="text-dark-400 text-sm uppercase tracking-wider font-medium"
                     >
-                        Expertise Technique
+                        {config.tech_stack.label}
                     </motion.span>
                     <motion.h2
                         initial={{ opacity: 0, y: 20 }}
@@ -72,7 +33,7 @@ export const TechStack = () => {
                         transition={{ delay: 0.3 }}
                         className="text-4xl md:text-5xl font-bold mt-4 text-gradient"
                     >
-                        Stack Technologique
+                        {config.tech_stack.titre}
                     </motion.h2>
                     <motion.p
                         initial={{ opacity: 0 }}
@@ -80,14 +41,13 @@ export const TechStack = () => {
                         transition={{ delay: 0.4 }}
                         className="text-dark-400 mt-4 max-w-2xl mx-auto"
                     >
-                        Une boîte à outils complète de technologies modernes que j'utilise pour créer
-                        des expériences numériques exceptionnelles
+                        {config.tech_stack.description}
                     </motion.p>
                 </motion.div>
 
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto">
-                    {techCategories.map((category, categoryIndex) => (
+                    {config.tech_stack.stack.map((category, categoryIndex) => (
                         <motion.div
                             key={category.title}
                             initial={{ opacity: 0, y: 30 }}
@@ -120,20 +80,19 @@ export const TechStack = () => {
                     className="mt-16 text-center"
                 >
                     <div className="inline-flex items-center gap-8 glass rounded-2xl px-12 py-8">
-                        <div className="text-center">
-                            <div className="text-4xl font-bold text-white">+10</div>
-                            <div className="text-dark-400 text-sm mt-1">Projets Complétés</div>
-                        </div>
-                        <div className="w-px h-16 bg-dark-800" />
-                        <div className="text-center">
-                            <div className="text-4xl font-bold text-white">+3</div>
-                            <div className="text-dark-400 text-sm mt-1">Années d'Expériences</div>
-                        </div>
-                        {/* <div className="w-px h-16 bg-dark-800" />
-                        <div className="text-center">
-                            <div className="text-4xl font-bold text-white">30+</div>
-                            <div className="text-dark-400 text-sm mt-1">Happy Clients</div>
-                        </div> */}
+                        {config.tech_stack.stats.map((item, index) => {
+                            return (
+                                <>
+                                    <div className="text-center">
+                                        <div className="text-4xl font-bold text-white">{item.value}</div>
+                                        <div className="text-dark-400 text-sm mt-1">{item.label}</div>
+                                    </div>
+                                    {index < config.tech_stack.stats.length - 1 && (
+                                        <div className="w-px h-16 bg-dark-800" />
+                                    )}
+                                </>
+                            )
+                        })}
                     </div>
                 </motion.div>
             </div>

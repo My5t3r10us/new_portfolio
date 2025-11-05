@@ -1,22 +1,15 @@
 import { motion } from 'framer-motion';
-import { ChevronDown, Github, Linkedin, Mail, Phone } from 'lucide-react';
+import { ChevronDown } from 'lucide-react';
 import { useEffect, useState } from 'react';
 
-const roles = [
-    'Développement Full-Stack',
-    'Développement Frontend',
-    'Développement Backend',
-    'Conception UI/UX',
-    'Conception de bases de données',
-    'DevOps et Déploiement',
-];
+import config from '../../portfolio.config';
 
 export const Hero = () => {
     const [currentRole, setCurrentRole] = useState(0);
 
     useEffect(() => {
         const interval = setInterval(() => {
-            setCurrentRole((prev) => (prev + 1) % roles.length);
+            setCurrentRole((prev) => (prev + 1) % config.hero.roles.length);
         }, 3000);
         return () => clearInterval(interval);
     }, []);
@@ -87,7 +80,7 @@ export const Hero = () => {
                         className="inline-block"
                     >
                         <span className="text-dark-400 text-sm md:text-base font-medium tracking-wider uppercase">
-                            Bienvenue sur mon Portfolio
+                            {config.hero.label}
                         </span>
                     </motion.div>
 
@@ -97,7 +90,7 @@ export const Hero = () => {
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: 0.3 }}
                     >
-                        <span className="text-gradient">Baptiste Moine</span>
+                        <span className="text-gradient">{config.hero.titre}</span>
                     </motion.h1>
 
                     <motion.div
@@ -113,7 +106,7 @@ export const Hero = () => {
                             exit={{ opacity: 0, y: -20 }}
                             className="text-2xl md:text-4xl text-dark-300 font-light"
                         >
-                            {roles[currentRole]}
+                            {config.hero.roles[currentRole]}
                         </motion.span>
                     </motion.div>
 
@@ -123,8 +116,7 @@ export const Hero = () => {
                         animate={{ opacity: 1 }}
                         transition={{ delay: 0.7 }}
                     >
-                        Développeur web fullstack passionné par la création d'applications intuitives et performantes.
-                        Je suis prêt à transformer vos idées en projets web innovant.
+                        {config.hero.description}
                     </motion.p>
 
                     <motion.div
@@ -157,12 +149,7 @@ export const Hero = () => {
                         animate={{ opacity: 1 }}
                         transition={{ delay: 1.1 }}
                     >
-                        {[
-                            { icon: Github, href: 'https://github.com/My5t3r10us' },
-                            { icon: Linkedin, href: 'https://linkedin.com/in/baptiste-moine' },
-                            { icon: Mail, href: 'mailto:v.baptiste.moine@gmail.com' },
-                            { icon: Phone, href: 'tel:+33768997894' },
-                        ].map((social, index) => (
+                        {config.social.map((social, index) => (
                             <motion.a
                                 key={index}
                                 href={social.href}

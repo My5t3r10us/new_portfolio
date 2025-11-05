@@ -1,12 +1,6 @@
 import { motion } from 'framer-motion';
-import { Github, Linkedin, Mail, Twitter } from 'lucide-react';
 
-const socialLinks = [
-  { icon: Github, href: 'https://github.com', label: 'GitHub' },
-  { icon: Linkedin, href: 'https://linkedin.com', label: 'LinkedIn' },
-  { icon: Twitter, href: 'https://twitter.com', label: 'Twitter' },
-  { icon: Mail, href: 'mailto:contact@example.com', label: 'Email' },
-];
+import config from '../../portfolio.config';
 
 export const Footer = () => {
   return (
@@ -19,9 +13,9 @@ export const Footer = () => {
             viewport={{ once: true }}
             className="flex items-center gap-6"
           >
-            {socialLinks.map((social, index) => (
+            {config.social.map((social, index) => (
               <motion.a
-                key={social.label}
+                key={social.href}
                 href={social.href}
                 target="_blank"
                 rel="noopener noreferrer"

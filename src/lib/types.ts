@@ -1,5 +1,4 @@
 export type Project = {
-  id: string;
   title: string;
   description: string;
   short_description: string;
@@ -10,7 +9,6 @@ export type Project = {
   category: string;
   featured: boolean;
   order_index: number;
-  created_at: string;
 };
 
 export type Service = {
