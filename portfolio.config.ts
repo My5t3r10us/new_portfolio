@@ -30,7 +30,7 @@ const config = {
     tech_stack: {
         label: 'Expertise Technique',
         titre: 'Stack Technologique',
-        description: `Une boîte à outils complète de technologies modernes que j'utilise pour créer des expériences numériques exceptionnelles`,
+        description: `Une boîte à outils complète de technologies modernes que j'utilise pour créer des expériences numériques`,
         stack: [
             {
                 title: 'Front-end',
@@ -131,21 +131,55 @@ const config = {
         titre: 'Projets mis en avant',
         description: 'Une sélection de mes réalisations récentes et de solutions créatives',
         data: [
+            // {
+            //     title: "E-Commerce Platform",
+            //     description: "A full-stack e-commerce solution with real-time inventory management, secure payment processing via Stripe, and an intuitive admin dashboard. Features include product filtering, shopping cart functionality, order tracking, and customer reviews. Built with a focus on performance and user experience.",
+            //     short_description: "Modern e-commerce platform with real-time inventory and secure payments",
+            //     tech_stack: [
+            //         "React",
+            //         "Node.js",
+            //         "Express",
+            //         "PostgreSQL",
+            //         "Stripe",
+            //         "Redis"
+            //     ],
+            //     image_url: "https://images.pexels.com/photos/230544/pexels-photo-230544.jpeg",
+            //     live_url: "https://example.com",
+            //     github_url: "https://github.com",
+            //     category: "fullstack",
+            //     featured: true,
+            //     order_index: 1,
+            // },
             {
-                title: "E-Commerce Platform",
-                description: "A full-stack e-commerce solution with real-time inventory management, secure payment processing via Stripe, and an intuitive admin dashboard. Features include product filtering, shopping cart functionality, order tracking, and customer reviews. Built with a focus on performance and user experience.",
-                short_description: "Modern e-commerce platform with real-time inventory and secure payments",
+                title: "Portfolio",
+                description: "Portfolio moderne, avec motion design, responsive et avec un design minimaliste.",
+                short_description: "Portfolio moderne, avec motion design, responsive et avec un design minimaliste.",
                 tech_stack: [
                     "React",
-                    "Node.js",
-                    "Express",
-                    "PostgreSQL",
-                    "Stripe",
-                    "Redis"
+                    "Framer-motion",
+                    "Tailwind CSS",
+                    "Vite.js"
                 ],
-                image_url: "https://images.pexels.com/photos/230544/pexels-photo-230544.jpeg",
-                live_url: "https://example.com",
-                github_url: "https://github.com",
+                image_url: "./images/hero_portfolio.png",
+                live_url: "https://baptistemoine.fr",
+                github_url: "https://github.com/My5t3r10us/new_portfolio",
+                category: "fullstack",
+                featured: true,
+                order_index: 1,
+            },
+            {
+                title: "Ancien Portfolio",
+                description: "Portfolio avec style brutaliste et avec un design minimaliste.",
+                short_description: "Portfolio avec style brutaliste et avec un design minimaliste.",
+                tech_stack: [
+                    "Vue.js",
+                    "Nuxt",
+                    "Tailwind CSS",
+                    "Vite.js"
+                ],
+                image_url: "./images/hero_old_portfolio.png",
+                live_url: "https://baptistemoine.fr",
+                // github_url: "https://github.com/My5t3r10us/new_portfolio",
                 category: "fullstack",
                 featured: true,
                 order_index: 1,
@@ -158,22 +192,44 @@ const config = {
         description: 'Mon parcours professionnel dédié à la création de solutions innovantes',
         data: [
             {
-                company: "Tech Innovators",
-                role: "Senior Full-Stack Developer",
-                description: "Led development of multiple client projects using React, Node.js, and PostgreSQL. Architected scalable microservices, mentored junior developers, and established best practices for code quality and testing. Delivered projects consistently on time with 99.9% uptime.",
-                location: "San Francisco, CA",
-                start_date: "2021-06-01",
+                company: "Car et Bus Maintenance",
+                role: "Aternant développeur applicatif",
+                description: "Alternant développeur applicatif en alternance pour 12 mois, .",
+                location: "Rouillon",
+                start_date: "2025-09-01",
                 end_date: "",
                 technologies: [
                     "React",
-                    "Next.js",
+                    "Framer-motion",
+                    "Tailwind CSS",
+                    "Vite.js",
                     "Node.js",
+                    "Express.js",
                     "PostgreSQL",
-                    "AWS",
-                    "Docker"
+                    "Microsoft SQL Server",
                 ],
                 order_index: 1,
+            },
+            {
+                company: "Voxymore",
+                role: "Aternant Web Concepteur",
+                description: "Alternant Web Concepteur en alternance 2 ans.",
+                location: "Rouillon",
+                start_date: "2025-09-01",
+                end_date: "2023-09-01",
+                technologies: [
+                    "React",
+                    "Vue.js",
+                    "Nuxt",
+                    "LitElement",
+                    "Tailwind CSS",
+                    "Vite.js",
+                    "Node.js",
+                    "Express.js"
+                ],
+                order_index: 2,
             }
+
         ]
     },
     contact: {

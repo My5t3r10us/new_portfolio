@@ -1,0 +1,9 @@
+{
+  "app": {
+    "name": "portfolio",
+    "dockerfile": "Dockerfile",
+    "port": 3000,
+    "buildCommand": "npm run build",
+    "startCommand": "serve -s dist -l 3000"
+  }
+}
