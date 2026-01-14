@@ -179,7 +179,7 @@ const config = {
                     "Vite.js"
                 ],
                 image_url: "./images/hero_old_portfolio.png",
-                live_url: "https://baptistemoine.fr",
+                live_url: "https://old.baptistemoine.dev",
                 // github_url: "https://github.com/My5t3r10us/new_portfolio",
                 category: "fullstack",
                 featured: true,
