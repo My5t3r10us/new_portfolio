@@ -35,7 +35,7 @@ const config = {
             {
                 title: 'Front-end',
                 techs: [
-                    { name: 'React' },
+                    { name: 'React.js' },
                     { name: 'Vue.js' },
                     { name: 'Next.js' },
                     { name: 'TypeScript' },
@@ -46,8 +46,8 @@ const config = {
                 title: 'Back-end',
                 techs: [
                     { name: 'Node.js' },
-                    { name: 'Express' },
-                    { name: 'Nuxt' },
+                    { name: 'Express.js' },
+                    { name: 'Nuxt.js' },
                     { name: 'RESTful APIs' },
                     { name: 'PHP' },
                 ],
@@ -56,6 +56,7 @@ const config = {
                 title: 'Base de données',
                 techs: [
                     { name: 'MariaDB' },
+                    { name: 'PostgreSQL' },
                     { name: 'MongoDB' },
                     { name: 'Redis' },
                     { name: 'Supabase' },
@@ -90,37 +91,37 @@ const config = {
         data: [
             {
                 title: "Développement Full-Stack",
-                description: "Développement d'applications web complètes avec des frameworks modernes comme React, Vue, Next.js et Node.js. De la conception de la base de données au déploiement, je crée des applications performantes et évolutives, parfaitement adaptées à vos besoins métier.",
+                description: "Création d'applications web complètes et performantes, de la conception au déploiement (React, Next.js, Node.js).",
                 icon_name: "Code2",
                 order_index: 1,
             },
             {
                 title: "Développement Frontend",
-                description: "Création d'interfaces utilisateur esthétiques et réactives avec React, Vue ou JavaScript pur. Maîtrise des frameworks CSS modernes, des animations et garantie d'une intégration parfaite au pixel près, compatible avec tous les appareils.",
+                description: "Interfaces modernes, réactives et pixel-perfect adaptées à tous les supports (React, Vue).",
                 icon_name: "Layout",
                 order_index: 2,
             },
             {
                 title: "Développement Backend",
-                description: "Conception d'applications serveur robustes et d'API RESTful avec Node.js, Express et PostgreSQL. Priorité à la sécurité, à la scalabilité et aux bonnes pratiques d'architecture pour des bases de code maintenables.",
+                description: "API RESTful robustes, sécurisées et scalables (Node.js, Express, PostgreSQL).",
                 icon_name: "Server",
                 order_index: 3,
             },
             {
                 title: "Conception UI/UX",
-                description: "Conception d'expériences utilisateur intuitives axées sur l'ergonomie et l'accessibilité. Création de wireframes, de prototypes et de maquettes haute fidélité qui traduisent les besoins métier en interfaces utilisateur agréables.",
+                description: "Design d'expériences intuitives et accessibles, du wireframe au prototype haute fidélité.",
                 icon_name: "Palette",
                 order_index: 4,
             },
             {
                 title: "Conception de bases de données",
-                description: "Conception de schémas de bases de données performants pour PostgreSQL, MongoDB et autres systèmes. Optimisation des performances des requêtes, de l'intégrité des données et de la scalabilité pour répondre aux besoins croissants des applications.",
+                description: "Architecture de données performante et optimisée pour la rapidité et l'intégrité (SQL/NoSQL).",
                 icon_name: "Database",
                 order_index: 5,
             },
             {
                 title: "DevOps et Déploiement",
-                description: "Mise en place de pipelines CI/CD, de conteneurisation avec Docker et de déploiement cloud sur AWS, Vercel ou d'autres plateformes. Garantie de déploiements fluides et automatisés et de systèmes de surveillance robustes.",
+                description: "Pipelines CI/CD, Docker et déploiement cloud automatisé (AWS, Vercel) pour une mise en prod fluide.",
                 icon_name: "Rocket",
                 order_index: 6,
             }
@@ -161,7 +162,7 @@ const config = {
                     "Vite.js"
                 ],
                 image_url: "./images/hero_portfolio.png",
-                live_url: "https://baptistemoine.fr",
+                live_url: "https://baptistemoine.dev",
                 github_url: "https://github.com/My5t3r10us/new_portfolio",
                 category: "fullstack",
                 featured: true,
@@ -182,7 +183,7 @@ const config = {
                 // github_url: "https://github.com/My5t3r10us/new_portfolio",
                 category: "fullstack",
                 featured: true,
-                order_index: 1,
+                order_index: 2,
             },
         ]
     },
@@ -194,12 +195,12 @@ const config = {
             {
                 company: "Car et Bus Maintenance",
                 role: "Aternant développeur applicatif",
-                description: "Alternant développeur applicatif en alternance pour 12 mois, .",
+                description: "Alternant développeur applicatif en alternance pour 12 mois.",
                 location: "Rouillon",
                 start_date: "2025-09-01",
                 end_date: "",
                 technologies: [
-                    "React",
+                    "React.js",
                     "Framer-motion",
                     "Tailwind CSS",
                     "Vite.js",
@@ -218,7 +219,7 @@ const config = {
                 start_date: "2025-09-01",
                 end_date: "2023-09-01",
                 technologies: [
-                    "React",
+                    "React.js",
                     "Vue.js",
                     "Nuxt",
                     "LitElement",
