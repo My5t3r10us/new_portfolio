@@ -135,7 +135,7 @@ export const Hero = () => {
                         </motion.button>
                         <motion.button
                             onClick={() => scrollToSection('contact')}
-                            className="px-8 py-4 glass glass-hover rounded-lg font-semibold"
+                            className="px-8 py-4 glass glass-hover rounded-lg font-semibold plausible-event-name=Me+contacter"
                             whileHover={{ scale: 1.05, y: -2 }}
                             whileTap={{ scale: 0.95 }}
                         >

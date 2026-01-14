@@ -56,7 +56,7 @@ export const Contact = () => {
                 initial={{ opacity: 0, y: 30 }}
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ delay: 0.2 + index * 0.1 }}
-                className="glass glass-hover rounded-2xl p-8 group cursor-pointer"
+                className="glass glass-hover rounded-2xl p-8 group cursor-pointer plausible-event-name=Me+contacter"
                 whileHover={{ scale: 1.05, y: -5 }}
               >
                 <div className="w-14 h-14 glass rounded-xl flex items-center justify-center mb-6 group-hover:shadow-glow transition-all">
